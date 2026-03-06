@@ -48,10 +48,10 @@
 
   - name: import mysql data
     community.mysql.mysql_db:
-    login_user: root
-    login_password: "{{ mysql_root_password }}"
-    login_host: "{{ mysql_login_host }}"
-    target: /app/schema/backend.sql
-    name: all
-    state: import
+      login_user: root
+      login_password: "{{ mysql_root_password }}"
+      login_host: "{{ mysql_login_host }}"
+      target: /app/schema/backend.sql
+      name: all
+      state: import
 
