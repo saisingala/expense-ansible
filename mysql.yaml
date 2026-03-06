@@ -3,13 +3,8 @@
   become: yes
   vars:
     mysql_root_password: ExpenseApp@1
-    login_host: mysql.khaleja.fun
+    mysql_login_host: mysql.khaleja.fun
   tasks:
-  - name: ansible to install Pymysql 
-    ansible.builtin.pip:
-      name: PyMySQL
-      executable: pip3.9
-
   - name: install mysql
     ansible.builtin.package:
       name: mysql-server
@@ -21,12 +16,11 @@
       state: started
       enabled: yes
 
-  - name: connect mysql server
+  - name: connect to mysql server
     community.mysql.mysql_info:
       login_user: root
       login_password: "{{ mysql_root_password }}"
-      login_host: "{{ login_host }}"
-    ignore_error: true
+      login_host: "{{ mysql_login_host }}"
     register: mysql_info
 
   - name: print the Information
