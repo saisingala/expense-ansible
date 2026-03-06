@@ -5,10 +5,11 @@
     mysql_root_password: ExpenseApp@1
     login_host: mysql.khaleja.fun
   tasks:
-  - name: install mysql module
+  - name: ansible to install Pymysql 
     ansible.builtin.pip:
       name: PyMySQL
       executable: pip3.9
+
   - name: connect to mysql server
   - name: install mysql
     ansible.builtin.package:
