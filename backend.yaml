@@ -1,0 +1,17 @@
+- name: configure backend services
+  hosts: backend.khaleja.fun
+  become: yes
+  tasks:
+  - name: disable nodejs old version
+    ansible.builtin.command: dnf module disable nodejs -y
+
+  - name: enable nodjs latst version
+    ansible.builtin.command: dnf module enable nodejs:20 -y
+
+  - name: install nodejs
+    name: nodejs
+    state: present
+
+  - name: create expense login_user
+    ansible.builtin.user:
+      name: expense
