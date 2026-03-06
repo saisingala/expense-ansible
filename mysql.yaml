@@ -3,7 +3,7 @@
   become: yes
   vars:
     mysql_root_password: ExpenseApp@1
-    mysql_login_host: mysql.khaleja.fun
+    login_host: mysql.khaleja.fun
   tasks:
   - name: install mysql
     ansible.builtin.package:
@@ -23,7 +23,8 @@
     community.mysql.mysql_info:
       login_user: root
       login_password: "{{ mysql_root_password }}"
-      login_host: "{{ mysql_login_host }}"
+      login_host: "{{ login_host }}"
+    ignore_error: true
     register: mysql_info
 
   - name: print the Information
