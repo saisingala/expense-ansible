@@ -6,8 +6,8 @@
     mysql_login_host: mysql.khaleja.fun
   tasks:
 
-- name: ansible to install PmMQL
-  ansible.builtin.pip:
+  - name: ansible to install PmMQL
+    ansible.builtin.pip:
     name: 
     - PyMySQL
     executable: pip3.9
